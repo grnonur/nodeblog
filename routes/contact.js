@@ -163,8 +163,8 @@ router.post('/email', (req, res) => {
                             port: 465,
                             secure: true, // true for 465, false for other ports
                             auth: {
-                                user: 'smtpmsbot@gmail.com', // generated ethereal user
-                            pass: 'wmzrdzmktsdvijqz', // generated ethereal password
+                                user: process.env.NODE_MAIL, // generated ethereal user
+                            pass: process.env.NODE_PASS, // generated ethereal password
             },
         });
 
