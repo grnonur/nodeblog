@@ -1,0 +1,80 @@
+<!--==========================
+    INSIDE HERO SECTION Section
+============================-->
+<section class="page-image page-image-blog md-padding">
+    <h1 class="text-white text-center">BLOG</h1>
+</section>
+
+<!--==========================
+    Contact Section
+============================-->
+<section id="blog" class="md-padding">
+    <div class="container">
+        <div class="row">
+            <main id="main" class="col-md-8">
+                {{#if sessionFlash.message}}
+                <div class="{{sessionFlash.type}}">{{sessionFlash.message}}</div>
+                {{/if}}
+                <div class="row">
+                    {{#if posts}}
+                    {{#each posts}}
+                    <div class="col-md-6">
+                        <div class="blog">
+                            <div class="blog-img">
+                                <img src="{{post_image}}" class="img-fluid">
+                            </div>
+                            <div class="blog-content">
+                                <ul class="blog-meta">
+                                    <li><i class="fas fa-users"></i><span class="writer">{{author.username}}</span></li>
+                                    <li><i class="fas fa-clock"></i><span class="writer">{{generateDate date 'DD MM
+                                            YYYY'}}</span></li>
+                                    <li><i class="fas fa-comments"></i><span class="writer">13</span></li>
+                                </ul>
+                                <h3>{{truncate title 50}}</h3>
+                                <p>{{strip (truncate content 220)}}</p>
+                                <a href="/posts/{{_id}}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{/if}}
+                    {{#unless posts}}
+                    <div class="col-md-12">
+                        <div class="alert alert-warning">Gösterilecek gönderi bulunamadı.</div>
+                    </div>
+                    {{/unless}}
+
+                </div>
+                {{#if posts}}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        {{#paginate current=current pages=pages}}
+                        {{/paginate}}
+                    </ul>
+                </nav>
+                {{/if}}
+            </main>
+
+            <aside id="aside" class="col-md-4">
+
+
+                <!-- /Search -->
+
+
+                <!-- Category -->
+
+
+                <!-- /Category -->
+                {{> site-sidebar}}
+                <!-- Posts sidebar -->
+
+                <!-- /Posts sidebar -->
+
+            </aside>
+
+
+
+        </div>
+
+    </div>
+</section>

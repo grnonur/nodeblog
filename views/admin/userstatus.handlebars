@@ -1,0 +1,96 @@
+<!--==========================
+    INSIDE HERO SECTION Section
+============================-->
+<section class="page-image page-image-contact md-padding">
+    <h1 class="text-white text-center">Admin</h1>
+</section>
+
+<!--==========================
+    Contact Section
+============================-->
+<section id="contact" class="md-padding">
+    <div class="container">
+        {{>admin-nav}}
+        <div class="clearfix"></div>
+	    <div class="mb-5"></div>
+        <div class="row text-center">
+            <div class="col-md-4 offset-md-4">
+                <div class="section-header">
+                    <h2 class="title">Bilgileri Getir</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="row">
+                    <div class="offset-2 col-md-8">
+                        {{#if sessionFlash.message}}
+                        <div class="{{sessionFlash.type}}">{{sessionFlash.message}}</div>
+                        {{/if}}
+                        <div class="form-group">
+                            {{#unless fuser}}
+                            <form action="/admin/userstatus/find" method="POST">
+                                <input class="form-control" name="usernameoremail" type="text"
+                                    placeholder="Username or Email" required="required"
+                                    data-validation-required-message="Please enter a username or email.">
+                                <p class="help-block text-danger"></p>
+                                <div class="clearfix"></div>
+                                <div class="col-lg-12 text-center">
+                                    <div id="success"></div>
+                                    <button class="btn btn-outline-warning" type="submit">Getir</button>
+                                </div>
+                            </form>
+                            {{/unless}}
+                            {{#each fuser}}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <form action="/admin/userstatus/find" method="POST">
+                                        <input class="form-control" name="usernameoremail" type="text"
+                                            placeholder="Username or Email" required="required"
+                                            data-validation-required-message="Please enter your username.">
+                                        <p class="help-block text-danger"></p>
+                                        <div class="clearfix"></div>
+                                        <div class="col-lg-12 text-center">
+                                            <div id="success"></div>
+                                            <button class="btn btn-outline-success float-right mt-4"
+                                                type="submit">Getir</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <p>ID: {{_id}}</p>
+                                    <p>Username: {{username}}</p>
+                                    <p>Email: {{email}}</p>
+                                </div>
+                                <div class="col-md-4 float-left">
+                                    <p>Hesap: {{truefalse 'verified' verified}}</p>
+                                    <p>Yetki: {{truefalse 'auth' auth}}</p>
+                                    <p>Durum: {{truefalse 'banned' banned}}</p>
+                                    {{#unless banned}}
+                                    <form action="/admin/ban/{{_id}}" method="POST">
+                                        <button class="btn btn-outline-danger float-left" type="submit">Yasakla</button>
+                                    </form>
+                                    {{/unless}}
+                                    {{#if banned}}
+                                    <form action="/admin/unban/{{_id}}" method="POST">
+                                        <button class="btn btn-outline-danger float-left" type="submit">Yasağı Kaldır</button>
+                                    </form>
+                                    {{/if}}
+                                </div>
+
+                            </div>
+                            {{/each}}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>

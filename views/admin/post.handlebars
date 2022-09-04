@@ -1,0 +1,55 @@
+<!--==========================
+    INSIDE HERO SECTION Section
+============================-->
+<section class="page-image page-image-about md-padding">
+    <h1 class="text-white text-center">Posts</h1>
+</section>
+
+<!--==========================
+    ABOUTUS Section
+============================-->
+<section id="aboutus" class="md-padding">
+    <div class="container">
+
+        {{> admin-nav}}
+        <div class="clearfix"></div>
+        <div class="mb-5"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>TITLE</th>
+                            <th>CATEGORY</th>
+                            <th>AUTHOR</th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each posts}}
+                        <tr>
+                            <td>{{_id}}</td>
+                            <td>{{title}}</td>
+                            <td>{{category.name}}</td>
+                            <td>{{author.username}}</td>
+                            <td><a class="btn btn-warning admin-edit" href="/admin/posts/edit/{{_id}}">EDIT</a></td>
+                            <td>
+                                <form action="/admin/posts/{{_id}}" method="POST">
+                                    <button type="submit" class="btn btn-danger">DELETE</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {{/each}}
+                        {{#unless posts}}
+                        <tr>
+                            <th colspan="6"><div class="alert alert-warning">Gösterilecek gönderi bulunamadı.</div></th>
+                        </tr>
+                        {{/unless}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

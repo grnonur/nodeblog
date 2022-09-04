@@ -1,0 +1,83 @@
+<!--==========================
+    INSIDE HERO SECTION Section
+============================-->
+<section class="page-image page-image-about md-padding">
+	<h1 class="text-white text-center">Categories</h1>
+</section>
+
+<!--==========================
+    ABOUTUS Section
+============================-->
+<section id="aboutus" class="md-padding">
+	<div class="container">
+
+	{{> admin-nav}}
+	<div class="clearfix"></div>
+	<div class="mb-5"></div>
+    {{#if sessionFlash.message}}
+        <div class="{{sessionFlash.type}}">{{sessionFlash.message}}</div>
+    {{/if}}
+		<div class="row">
+			<div class="col-md-4">
+				<form action="/admin/categories" method="POST">
+					<div class="row">
+						<div class="col-md-10">
+							<div class="form-group">
+								<input class="form-control" name="name" type="text" placeholder="Your category"
+									required="required" data-validation-required-message="Please enter your category name.">
+								<p class="help-block text-danger"></p>
+							</div>
+							
+						</div>
+
+
+						<div class="clearfix"></div>
+						<div class="col-lg-12">
+							<div id="success"></div>
+							<button class="main-btn admin-categories" type="submit">Add Category</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-8">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>NAME</th>
+							<th>EDIT</th>
+                            <th>DELETE</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#if categories}}
+							{{#each categories}}
+							<tr>
+								<td>{{_id}}</td>
+								<td>{{name}}</td>
+								<td>
+									<form action="/admin/categories/edit/{{_id}}" method="GET">
+										<button class="btn btn-warning admin-edit" type="submit">EDIT</button>
+									</form>
+								</td>
+								<td>
+									<form action="/admin/categories/{{_id}}" method="POST">
+										<button class="btn btn-danger" type="submit">DELETE</button>
+									</form>
+								</td>
+							</tr>
+							{{/each}}
+						{{/if}}
+						{{#unless categories}}
+							<tr>
+								<th colspan="4">
+									<div class="alert alert-warning">Gösterilecek kategori bulunamadı.</div>
+								</th>
+							</tr>
+						{{/unless}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>

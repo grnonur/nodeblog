@@ -1,0 +1,53 @@
+<!--==========================
+    HERO SECTION Section
+============================-->
+<header id="hero">
+	<div class="container">
+		<div class="intro-text">
+			<div class="row">
+				<div class="offset-3 col-md-6">
+					{{#if sessionFlash.message}}
+					<div class="{{sessionFlash.type}}">{{sessionFlash.message}}</div>
+					{{/if}}
+					<form action="/admin/edithome" method="POST">
+						<div class="form-group">
+							<input class="form-control btn-outline-success" name="headerH1" type="text"
+								value="{{home.headerH1}}" required="required"
+								data-validation-required-message="Please enter your name.">
+						</div>
+						<div class="form-group">
+							<textarea class="form-control btn-outline-danger" name="headerP" required="required"
+								data-validation-required-message="Please enter a message.">{{home.headerP}}</textarea>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-md-6"><input name="headerBtnText" class="form-control text-center btn-outline-warning"
+										type="text" value="{{home.headerBtnText}}" required="required"></div>
+								<div class="col-md-6"><input name="headerBtnLink" class="form-control text-center btn-outline-warning"
+										type="text" value="{{home.headerBtnLink}}" required="required"></div>
+							</div>
+						</div>
+						<div class="form-group">
+							<button class="btn btn-primary" type="submit">Save</button>
+						</div>
+					</form>
+					<div class="form-group">
+						<form action="/admin/editheroimage" method="POST" enctype="multipart/form-data">
+							<div class="row">
+								<div class="col-md-6">			
+									<a class="form-control btn-warning" style="cursor: pointer;"
+										onclick="document.querySelector('.file').click();">Dosya Seç</a>
+									<input class="file" name="headerImage" accept=".png, .jpg, .jpeg" type="file" tabindex="-1" style="display:none;"
+										required="required">
+								</div>
+								<div class="col-md-6">
+									<button class="form-control btn-warning" type="submit" style="cursor: pointer;">Yükle</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

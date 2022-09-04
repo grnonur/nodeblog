@@ -1,0 +1,60 @@
+<!-- Navigation -->
+    <nav class="navbar navbar-container navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/">NODEW</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    {{#if displayLink}}
+                        {{#if auth}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Admin</a>
+                        </li>
+                        {{/if}}
+                    {{/if}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                    {{#if displayLink}}
+                        {{#if auth}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/posts/new">Add Post</a>
+                        </li>
+                        {{/if}}
+                    {{/if}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    {{#unless displayLink}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/login">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/register">Register</a>
+                    </li>
+                    {{/unless}}
+                    {{#if displayLink}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/passChange/{{passKey}}">Change Password</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/logout">Log Out</a>
+                    </li>
+                    {{#unless verify}}
+                    <li class="nav-item">
+                        <a class="nav-link verify" href="/users/verifyaccount">VERIFY</a>
+                    </li>
+                    {{/unless}}
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
