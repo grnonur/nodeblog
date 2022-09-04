@@ -29,7 +29,7 @@ cloudinary.config({
     api_secret: process.env.CLOUD_API_SECRET
 })
 
-const hostname = '127.0.0.1';
+
 const port = process.env.PORT;
 
 //database connection
@@ -137,6 +137,6 @@ app.use('/contact', contact);
 const admin = require('./routes/admin/index');
 app.use('/admin', admin);
 
-app.listen(port, hostname, (req, res) => {
-    console.log(`Sunucu Aktif! http://${hostname}:${port}/`);
+app.listen(port, (req, res) => {
+    console.log(`Sunucu Aktif!`);
 })
