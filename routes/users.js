@@ -157,7 +157,7 @@ router.post('/register', (req, res) => {
                     }).save();
 
                     token.then(t => {
-                        const message = `http://127.0.0.1:3000/users/verify/${user._id}/${t.token}`;
+                        const message = `https://nodeblogonline.herokuapp.com/users/verify/${user._id}/${t.token}`;
                         const html = `<h2>Email Verification</h2><p>Please, click the link below to confirm your mail adress</p><p><a href="${message}">Click Here</a></p>`
                         sendEmail(user.email, "Account Verification", html);
 
@@ -254,7 +254,7 @@ router.get('/verifyaccount', (req, res) => {
                 }).save();
 
                 token.then(t => {
-                    const message = `http://127.0.0.1:3000/users/verify/${user._id}/${t.token}`;
+                    const message = `https://nodeblogonline.herokuapp.com/users/verify/${user._id}/${t.token}`;
                     const html = `<h2>Email Verification</h2><p>Please, click the link below to confirm your mail adress</p><p><a href="${message}">Click Here</a></p>`
                     sendEmail(user.email, "Account Verification", html);
 
@@ -292,7 +292,7 @@ router.post('/forgetPassword', (req, res) => {
                 intoken: crypto.randomBytes(32).toString("hex"),
                 outtoken: crypto.randomBytes(32).toString("hex"),
             }).then(token => {
-                const message = `http://127.0.0.1:3000/users/forgetPassword/${token.intoken}/${token.outtoken}/${token.userId}`;
+                const message = `https://nodeblogonline.herokuapp.com/users/forgetPassword/${token.intoken}/${token.outtoken}/${token.userId}`;
                 const html = `<h2>Reset Password</h2><p>Please, click the link below to reset your password</p><p><a href="${message}">Click Here</a></p>`
                 sendEmail(user.email, "Reset Password", html);
 
