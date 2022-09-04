@@ -308,10 +308,11 @@ router.post('/posts/:id', (req, res) => {
         }
         Post.findOne({_id: req.params.id}).lean().then(post => {
             cloudinary.uploader.destroy(post.public_id).then(() => {
-                Post.deleteOne({_id: req.params.id}).lean().then(() => {
-                    res.redirect('/admin/posts');
-                })
+                console.log("post image deleted")
             })
+        })
+        Post.deleteOne({_id: req.params.id}).lean().then(() => {
+            res.redirect('/admin/posts');
         })
     })
 })
