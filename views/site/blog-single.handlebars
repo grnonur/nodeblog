@@ -33,7 +33,7 @@
 
                     <!-- blog comments -->
                     <div class="blog-comments">
-                        <h3>({{countComment comments}}) Comments</h3>
+                        <h3>Yorumlar ({{countComment comments}})</h3>
 
                         <!-- comment -->
                         {{#each comments}}
@@ -56,10 +56,10 @@
 
                     <!-- reply form -->
                     <div class="reply-form">
-                        <h3>Leave A Comment</h3>
+                        <h3>Yorum Yapın</h3>
                         <form action="/posts/comment/{{post._id}}" method="POST">
-                            <textarea class="form-control mb-4 commentArea" row="5" name="cContent" placeholder="Add Your Commment" required="required"></textarea>
-                            <button type="submit" class="main-btn">Submit</button>
+                            <textarea class="form-control mb-4 commentArea" row="5" name="cContent" placeholder="Yorumunuzu yazınız..." required="required"></textarea>
+                            <button type="submit" class="btn btn-outline-warning">Gönder</button>
                         </form>
                     </div>
                     <!-- /reply form -->

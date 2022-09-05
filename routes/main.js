@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 router.get('/blog', (req, res) => {
     const postPerPage = 4;
     const page = req.query.page || 1;
-    Post.find({}).populate({path: 'author', model: User}).sort({$natural:-1})
+    Post.find({}).populate({path: 'author', model: User}).populate({path: 'category', model: Category}).sort({$natural:-1})
     .skip((page-1)*postPerPage)
     .limit(postPerPage)
     .lean().then(posts => {

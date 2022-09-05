@@ -28,11 +28,11 @@
                                     <li><i class="fas fa-users"></i><span class="writer">{{author.username}}</span></li>
                                     <li><i class="fas fa-clock"></i><span class="writer">{{generateDate date 'DD MM
                                             YYYY'}}</span></li>
-                                    <li><i class="fas fa-comments"></i><span class="writer">13</span></li>
+                                    <li><i class="far fa-edit"></i><span class="writer">{{truncate category.name 10}}</span></li>
                                 </ul>
                                 <h3>{{truncate title 50}}</h3>
                                 <p>{{{strip (truncate content 220)}}}</p>
-                                <a href="/posts/{{_id}}">Read More</a>
+                                <a href="/posts/{{_id}}">Daha Fazla</a>
                             </div>
                         </div>
                     </div>
