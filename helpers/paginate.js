@@ -2,10 +2,10 @@ module.exports = {
     paginate: (options) => {
         let outputHTML = '';
         if(options.hash.current === 1){
-            outputHTML += `<li class="page-item disabled"><a class="page-link">First</a></li>`;
+            outputHTML += `<li class="page-item disabled"><a class="page-link">Ilk</a></li>`;
         }
         else{
-            outputHTML += `<li class="page-item"><a class="page-link" href="?page=1">First</a></li>`;
+            outputHTML += `<li class="page-item"><a class="page-link" href="?page=1">Ilk</a></li>`;
         }
 
         let i = (Number(options.hash.current) > 5 ? Number(options.hash.current) - 3 : 1)
@@ -28,10 +28,10 @@ module.exports = {
         }
 
         if(options.hash.current == options.hash.pages){
-            outputHTML += `<li class="page-item disabled"><a class="page-link" href="?page=1">Last</a></li>`;
+            outputHTML += `<li class="page-item disabled"><a class="page-link" href="?page=1">Son</a></li>`;
         }
         else{
-            outputHTML += `<li class="page-item"><a class="page-link" href="?page=${options.hash.pages}">Last</a></li>`;
+            outputHTML += `<li class="page-item"><a class="page-link" href="?page=${options.hash.pages}">Son</a></li>`;
         }
 
         return outputHTML;

@@ -26,12 +26,12 @@
                     {{#if displayLink}}
                         {{#if auth}}
                         <li class="nav-item">
-                            <a class="nav-link" href="/posts/new">Add Post</a>
+                            <a class="nav-link" href="/posts/new">Gönderi Oluştur</a>
                         </li>
                         {{/if}}
                     {{/if}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact</a>
+                        <a class="nav-link" href="/contact">Iletişim</a>
                     </li>
                     {{#unless displayLink}}
                     <li class="nav-item">
@@ -43,14 +43,14 @@
                     {{/unless}}
                     {{#if displayLink}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/users/passChange/{{passKey}}">Change Password</a>
+                        <a class="nav-link" href="/users/passChange/{{passKey}}">Ayarlar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/users/logout">Log Out</a>
                     </li>
                     {{#unless verify}}
                     <li class="nav-item">
-                        <a class="nav-link verify" href="/users/verifyaccount">VERIFY</a>
+                        <a class="nav-link verify" href="/users/verifyaccount">DOĞRULA</a>
                     </li>
                     {{/unless}}
                     {{/if}}
