@@ -306,8 +306,12 @@ router.post('/posts/:id', (req, res) => {
             }
             return res.redirect('/users/verify')
         }
-        Post.deleteOne({_id: req.params.id}).lean().then(() => {
-            res.redirect('/admin/posts');
+        Post.findOne({_id: req.params.id}).lean().then(post => {
+            cloudinary.uploader.destroy(post.public_id).then(() => {
+                Post.deleteOne({_id: req.params.id}).lean().then(() => {
+                    res.redirect('/admin/posts');
+                })
+            })
         })
     })
 })
