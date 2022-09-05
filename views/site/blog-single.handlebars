@@ -23,7 +23,7 @@
                         <ul class="blog-meta">
                             <li><i class="fas fa-user"></i>{{post.author.username}}</li>
                             <li><i class="fas fa-clock"></i>{{generateDate post.date 'DD MM YYYY'}}</li>
-                            <li><i class="fas fa-comments"></i>57</li>
+                            <li><i class="fas fa-comments"></i>{{countComment comments}}</li>
                         </ul>
                         <h3>{{post.title}}</h3>
                         <p>{{{post.content}}}</p>
